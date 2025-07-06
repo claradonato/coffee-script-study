@@ -1,4 +1,4 @@
-{ input, input_password, print, gerarHash, carregarContas } = require './utils.coffee'
+{ input, input_password, print, gerarHash, carregarContas } = require '../utils.coffee'
 child_process = require 'child_process'
 
 contas = carregarContas()

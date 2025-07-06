@@ -25,7 +25,7 @@ file_exists = (path) ->
 gerarHash = (senha) -> crypto.createHash('sha256').update(senha).digest('hex')
 
 # lê yaml com fallback  
-carregarContas = (caminho = 'contas.yaml') -> 
+carregarContas = (caminho = './data/contas.yaml') -> 
     try 
         dados = fs.readFileSync(caminho, 'utf8')
         contas = yaml.load(dados) or []
@@ -34,7 +34,7 @@ carregarContas = (caminho = 'contas.yaml') ->
     contas
 
 # salvar as contas no arquivo.yaml
-salvarContas = (contas, caminho = 'contas.yaml') ->
+salvarContas = (contas, caminho = './data/contas.yaml') ->
     try 
         yamlString = yaml.dump(contas)
         fs.writeFileSync(caminho, yamlString, 'utf8')
@@ -43,8 +43,36 @@ salvarContas = (contas, caminho = 'contas.yaml') ->
         console.log 'O arquivo não foi salvo!', error
         false
 
+# carregar arquivo hd.yaml
+carregarHD = (caminho = './data/hd.yaml') ->
+    try 
+        dados = fs.readFileSync(caminho, 'utf8')
+        arquivos = yaml.load(dados) or []
+    catch error
+        print 'Arquivo inválido ou não encontrado'
+        process.exit()
+    arquivos
+
+# lê arquivo lang.cofig
+carregarLangConfig = (mensagens, caminho = 'lang.config') ->
+    try 
+        idioma = fs.readFileSync('lang.config', 'utf8').trim()
+        mensagem = mensagens[idioma]
+    
+        if mensagem?
+            print mensagem
+        else
+            print 'Idioma não configurado.'
+
+    catch error
+        print 'Erro ao ler arquivo lang.config'
+
 # exportações
 module.exports = {
+    crypto
+    fs
+    readlineSync
+    yaml
     input
     input_password
     print
@@ -52,4 +80,6 @@ module.exports = {
     gerarHash
     carregarContas
     salvarContas
+    carregarHD
+    carregarLangConfig
 } 

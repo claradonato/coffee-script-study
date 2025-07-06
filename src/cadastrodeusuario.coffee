@@ -1,5 +1,5 @@
 #exportações
-{ input, input_password, print, file_exists, readlineSync, gerarHash, carregarContas, salvarContas } = require './utils.coffee'
+{ input, input_password, print, file_exists, readlineSync, gerarHash, carregarContas, salvarContas } = require '../utils.coffee'
 
 login = input('Login: ')
 senha = input_password("*")
