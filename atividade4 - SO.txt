@@ -1,0 +1,39 @@
+Sistemas Operacionais – Atividade 4
+
+Implementações
+Instruções: Fazer cada programa abaixo com CoffeeScript e a Stdlib que foi fornecida.
+
+1. Programa de Cadastro de Usuários: pede login, senha, aplica um hash na senha e então armazena a
+conta nova num arquivo contas.yaml com entradas do tipo { login, senha_hash }.
+
+2. Programa de Login no Sistema: pede um login e senha, verifica com o arquivo contas.yaml anterior
+se deu match em algum e mostra mensagem avisando se o login deu certo ou não. Extra (bônus):
+toca um som da sua voz falando uma mensagem de “bem-vindo” ou rejeitando o login.
+
+3. Programa de Sorteio de Usuários: sorteia um usuário do arquivo contas.yaml e mostra na tela o
+nome desse usuário, avisando que ele ganhou um prêmio. Extra (bônus): toca um som da sua voz
+falando o nome da pessoa, dizendo que ela ganhou um prêmio (obs.: gravar 3 nomes distintos).
+
+4. Programa de Espaço Usado pelo Usuário: lê arquivo hd.yaml que tem uma lista de entradas do tipo
+{ arquivo, usuario, tamanho }. O programa pede um nome de usuário e diz todos os arquivos desse
+usuário, e ao final o espaço ocupado de todos os seus arquivos. Ex.: { receita.txt, pedro, 2 },
+{ bolo.jpg, maria, 3 }, { trabalho.doc, pedro, 4 } → total ocupado pelo ‘pedro’ é 2+4 = 6.
+
+5. Programa de i18n: lê um arquivo lang.config que dentro dele deve ter um código do idioma e então o
+programa irá mostrar a mensagem “Oi, tudo bem?” conforme o idioma. Faça para pelo menos 5
+idiomas. Use o Google Translate.
+
+6. Programa de PCB – estados: lê um arquivo processos.yaml com a lista dos PCBs dos processos,
+contendo itens do tipo { pid, name, state, io_bound, uid, affinity }. O programa deve poder mostrar
+uma lista de todos os processos no estado “ready”, uma lista de todos os processos no estado
+“running” e uma lista de todos os processos no estado “blocked”.
+
+7. Programa de PCB – I/O bound: lê o arquivo processos.yaml anterior e diz todos os nomes,
+acompanhados dos respectivos PID’s, dos processos que são I/O bound.
+
+8. Programa de PCB – usuário: lê o arquivo processos.yaml e o arquivo usuarios.yaml (que deve ter
+entradas do tipo { uid, login } ), então para cada processo diz o nome do usuário (login) que iniciou
+aquele processo. Extra (bônus): informar, para cada usuário do usuarios.yaml, quais processos (se é
+que tem algum) que ele iniciou no sistema.
+
+
