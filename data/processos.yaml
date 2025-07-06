@@ -1,0 +1,34 @@
+- pid: 2
+  name: processoA
+  state: ready
+  io_bound: false
+  uid: 1000
+  affinity: 0
+
+- pid: 3
+  name: processoB
+  state: running
+  io_bound: true
+  uid: 1000
+  affinity: 1
+
+- pid: 4
+  name: processoC
+  state: blocked
+  io_bound: true
+  uid: 1001
+  affinity: 0
+
+- pid: 5
+  name: processoD
+  state: blocked
+  io_bound: false
+  uid: 1011
+  affinity: 0
+
+- pid: 6
+  name: processoE
+  state: ready
+  io_bound: false
+  uid: 1000
+  affinity: 1

@@ -67,6 +67,26 @@ carregarLangConfig = (mensagens, caminho = 'lang.config') ->
     catch error
         print 'Erro ao ler arquivo lang.config'
 
+#carregar processos.yaml
+carregarProcessos = (caminho = 'data/processos.yaml') ->
+    try 
+        dados = fs.readFileSync('data/processos.yaml', 'utf8')
+        processos = yaml.load(dados) or []
+    
+    catch error
+        print 'Erro ao ler processos.yaml'
+        process.exit()
+
+# carregar usuarios.yaml
+carregarUsuarios = (caminho = 'data/usuarios.yaml') ->
+    try 
+        dados = fs.readFileSync('data/usuarios.yaml', 'utf8')
+        usuarios = yaml.load(dados) or []
+    
+    catch error
+        print 'Erro ao ler usuarios.yaml'
+        process.exit()
+
 # exportações
 module.exports = {
     crypto
@@ -82,4 +102,6 @@ module.exports = {
     salvarContas
     carregarHD
     carregarLangConfig
+    carregarProcessos
+    carregarUsuarios
 } 
